@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.wolfcode.rbac.mapper.PermissionMapper">
+    <!--增加权限-->
+    <insert id="addPermission" keyProperty="id" useGeneratedKeys="true">
+        insert into permission (name, expression)
+        values (#{name}, #{expression})
+    </insert>
+    <!--删除-->
+    <delete id="deletePermissionById">
+        delete from permission
+        where id = #{id}
+    </delete>
+    <!--查询所有权限-->
+    <select id="selectAll" resultType="cn.wolfcode.rbac.domain.Permission">
+        select * from permission
+    </select>
+
+</mapper>

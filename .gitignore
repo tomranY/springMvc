@@ -1,0 +1,6 @@
+# 项目排除路径
+/rbac/target/
+/springmvc_class01/target/
+/springmvc_class02/target/
+/springmvc_homework/target/
+/springmvc_tmr/target/

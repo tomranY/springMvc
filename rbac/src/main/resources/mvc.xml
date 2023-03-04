@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <import resource="classpath:applicationContext.xml"/>
+
+    <!--MVC的注解驱动-->
+    <mvc:annotation-driven/>
+
+	<mvc:default-servlet-handler/>
+
+    <!--视图解析器 => 简化forward请求转发的书写-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 视图前缀 -->
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <!-- 视图后缀 -->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!--  拦截器需要拦截的路径  完善内容!!  -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--   拦截哪些请求 , /** 表示拦截所有请求  -->
+            <mvc:mapping path="/**"/>
+            <!--   不拦截哪些请求 ,相当于放行哪些请求  -->
+            <mvc:exclude-mapping path="/login"/>
+            <!--   指定生效的拦截器类  -->
+            <bean class="cn.wolfcode.rbac.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+</beans>

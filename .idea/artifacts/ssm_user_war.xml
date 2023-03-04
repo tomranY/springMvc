@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ssm_user:war">
+    <output-path>$PROJECT_DIR$/../03_资源/vue前后端分离项目/ssm_user/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ssm_user</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ssm_user-1.0.war">
+      <element id="artifact" artifact-name="ssm_user:war exploded" />
+    </root>
+  </artifact>
+</component>
